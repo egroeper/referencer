@@ -486,6 +486,8 @@ bool Document::readPDF ()
 		#ifdef OLD_POPPLER
 			#warning Using poppler <= 0.5
 			textdump += poppler_page_get_text (page, rect);
+		#elif POPPLER_CHECK_VERSION(0, 15, 0)
+			textdump += poppler_page_get_text(page);
 		#else
 			#warning Using poppler >= 0.6
 			textdump += poppler_page_get_text (page, POPPLER_SELECTION_GLYPH, rect);
