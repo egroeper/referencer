@@ -82,6 +82,7 @@ void RefWindow::signalException ()
     try {
         throw;
     } catch (const Glib::Exception &ex) {
+        DEBUG (Glib::ustring("Glib::Exception in signal handler, what=") + ex.what());
         Utility::exceptionDialog (&ex, "executing UI action");
     } catch (const std::exception &ex) {
         DEBUG (Glib::ustring("std::exception in signal handler, what=") + ex.what());
