@@ -212,18 +212,18 @@ protected:
                     if (i == 0) {
                         if (!tagIcon_) {
                             Glib::ustring tagIconFile = Utility::findDataFile ("tag.svg");
-														try {
-															tagIcon_ = Gdk::Pixbuf::create_from_file (tagIconFile);
-														} catch (const Glib::Exception &ex) {
-															DEBUG (Glib::ustring("Glib::Exception when opening tagIcon, what=") + ex.what());
-														}
-														if (tagIcon_) {
-	                            tagIcon_ = tagIcon_->scale_simple (
-	                                iconWidth,
-	                                iconHeight,
-	                                Gdk::INTERP_HYPER);
-														}
-													}
+                            try {
+                              tagIcon_ = Gdk::Pixbuf::create_from_file (tagIconFile);
+                            } catch (const Glib::Exception &ex) {
+                              DEBUG (Glib::ustring("Glib::Exception when opening tagIcon, what=") + ex.what());
+                            }
+                            if (tagIcon_) {
+                              tagIcon_ = tagIcon_->scale_simple (
+                                  iconWidth,
+                                  iconHeight,
+                                  Gdk::INTERP_HYPER);
+                            }
+                          }
                         icon = tagIcon_;
                     } else if (i == 1) {
                         if (!propertiesIcon_) {
