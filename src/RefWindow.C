@@ -461,6 +461,9 @@ void RefWindow::constructMenu ()
 		"OpenDoc", Gtk::Stock::OPEN, _("_Open")), Gtk::AccelKey ("<control>a"),
   	sigc::mem_fun(*this, &RefWindow::onOpenDoc));
 	actiongroup_->add( Gtk::Action::create(
+		"CopyKey", Gtk::Stock::COPY), Gtk::AccelKey ("<control>k"),
+  	sigc::mem_fun(*this, &RefWindow::onCopyKey));
+	actiongroup_->add( Gtk::Action::create(
 		"DocProperties", Gtk::Stock::PROPERTIES), Gtk::AccelKey ("<control>e"),
   	sigc::mem_fun(*this, &RefWindow::onDocProperties));
 
@@ -2503,6 +2506,13 @@ void RefWindow::onDocProperties ()
 {
 	Document *doc = docview_->getSelectedDoc ();
 	openProperties (doc);
+}
+
+void RefWindow::onCopyKey ()
+{
+	Document *doc = docview_->getSelectedDoc ();
+	Glib::RefPtr<Gtk::Clipboard> refClipboard = Gtk::Clipboard::get();
+  refClipboard->set_text(doc->getKey());
 }
 
 

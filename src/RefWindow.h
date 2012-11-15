@@ -257,6 +257,7 @@ class RefWindow {
 		void onSaveLibrary ();
 		void onSaveAsLibrary ();
 		void onOpenLibrary ();
+		void onCopyKey ();
 		void onExportBibtex ();
 		void onManageBibtex ();
 		void onLibraryFolder ();
