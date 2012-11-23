@@ -612,6 +612,9 @@ bool Document::matchesSearch (Glib::ustring const &search)
     if (key_.casefold().find(searchNormalised) != Glib::ustring::npos)
         return true;
 
+    if (relfilename_.casefold().find(searchNormalised) != Glib::ustring::npos)
+        return true;
+
     return false;
 }
 
